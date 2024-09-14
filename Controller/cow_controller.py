@@ -10,7 +10,7 @@ class CowController:
 
     def handle_color_submission(self, color):
         if color in self.model.valid_colors:
-            self.main_window.hide()  # Hide main window when opening specific cow view
+            self.main_window.hide()
             if color == 'white':
                 self.view = WhiteCowView(self)
             elif color == 'brown':
@@ -63,5 +63,5 @@ class CowController:
     def show_farm_summary(self):
         summary = self.model.get_farm_summary()
         self.main_window.show_summary(summary)
-        self.view.close()  # Close the cow view and return to main window
+        self.view.close()
         self.main_window.show()

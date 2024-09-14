@@ -1,7 +1,7 @@
 class CowModel:
     def __init__(self):
         self.valid_colors = ['white', 'brown', 'pink']
-        self.farm_data = {}  # Dictionary to store farm data (key: farm_id, value: {'color': color, 'count': number_of_cows})
+        self.farm_data = {}
     
     def validate_cow_id(self, cow_id):
         return cow_id.isdigit() and len(cow_id) == 8 and cow_id[0] != '0'
@@ -20,11 +20,9 @@ class CowModel:
 
     def can_farm_accept_cow(self, farm_id, cow_color):
         if farm_id not in self.farm_data:
-            # If farm is new, initialize it
             self.farm_data[farm_id] = {'color': cow_color, 'count': 0}
             return True
         else:
-            # If farm already exists, check if the color matches
             return self.farm_data[farm_id]['color'] == cow_color
 
     def register_cow(self, farm_id, cow_color):
